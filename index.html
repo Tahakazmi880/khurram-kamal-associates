@@ -53,18 +53,19 @@
   .topbar a:hover { color:var(--white); }
   /* Header */
   header { position:sticky; top:0; z-index:50; background:var(--white); border-bottom:4px solid var(--black); }
-  .head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:26px 0; }
+  .head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:26px 0; flex-wrap:nowrap; }
+  .head .btn { padding:15px 22px; }
   .brand { display:flex; align-items:center; gap:14px; }
   .logo-mark { width:64px; height:64px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .logo-mark svg { width:60px; height:60px; }
-  .brand .bname { font-family:Georgia,serif; font-weight:800; font-size:22px; letter-spacing:.04em; line-height:1.2; white-space:nowrap; }
+  .brand .bname { font-family:Georgia,serif; font-weight:800; font-size:22px; letter-spacing:.02em; line-height:1.2; white-space:nowrap; }
   .brand .bsub { font-size:12px; letter-spacing:.5em; color:var(--muted); }
-  nav { display:flex; gap:26px; font-size:16px; font-weight:700; }
-  nav a { color:#333; padding:6px 0; position:relative; }
+  nav { display:flex; gap:18px; font-size:16px; font-weight:700; flex-wrap:nowrap; }
+  nav a { color:#333; padding:6px 0; position:relative; white-space:nowrap; }
   nav a::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:var(--black); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
   nav a:hover { color:var(--black); }
   nav a:hover::after { transform:scaleX(1); }
-  .btn { display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em; padding:15px 28px; border-radius:8px; border:1.5px solid var(--black); cursor:pointer; transition:transform .25s cubic-bezier(.34,1.45,.44,1), background .25s ease, color .25s ease, box-shadow .25s ease; }
+  .btn { display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em; padding:15px 28px; border-radius:8px; border:1.5px solid var(--black); cursor:pointer; white-space:nowrap; transition:transform .25s cubic-bezier(.34,1.45,.44,1), background .25s ease, color .25s ease, box-shadow .25s ease; }
   .btn:hover { transform:translateY(-2px); }
   .btn:active { transform:scale(.97); }
   .btn.white::after { background:linear-gradient(105deg, transparent, rgba(0,0,0,.10), transparent); }
