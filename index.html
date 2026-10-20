@@ -41,7 +41,7 @@
 <style>
   :root { --black:#161616; --ink:#1a1a1a; --muted:#555; --line:#e5e5e5; --bg:#f6f6f6; --white:#fff; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
+  html { scroll-behavior:smooth; scroll-padding-top:124px; }
   body { font-family:Arial,Helvetica,sans-serif; background:var(--white); color:var(--ink); line-height:1.6; overflow-x:hidden; }
   img { max-width:100%; }
   h1, h2, h3, .serif { font-family:Georgia,'Times New Roman',serif; }
@@ -52,26 +52,28 @@
   .topbar .wrap { display:flex; justify-content:space-between; gap:16px; padding-top:9px; padding-bottom:9px; flex-wrap:wrap; }
   .topbar a:hover { color:var(--white); }
   /* Header */
-  header { position:sticky; top:0; z-index:50; background:var(--white); border-bottom:3px solid var(--black); }
-  .head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 0; }
-  .brand { display:flex; align-items:center; gap:13px; }
-  .logo-mark { width:56px; height:56px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .logo-mark svg { width:52px; height:52px; }
-  .brand .bname { font-family:Georgia,serif; font-weight:800; font-size:20px; letter-spacing:.04em; line-height:1.2; white-space:nowrap; }
-  .brand .bsub { font-size:11px; letter-spacing:.5em; color:var(--muted); }
-  nav { display:flex; gap:24px; font-size:15px; font-weight:700; }
+  header { position:sticky; top:0; z-index:50; background:var(--white); border-bottom:4px solid var(--black); }
+  .head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:26px 0; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .logo-mark { width:64px; height:64px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .logo-mark svg { width:60px; height:60px; }
+  .brand .bname { font-family:Georgia,serif; font-weight:800; font-size:22px; letter-spacing:.04em; line-height:1.2; white-space:nowrap; }
+  .brand .bsub { font-size:12px; letter-spacing:.5em; color:var(--muted); }
+  nav { display:flex; gap:26px; font-size:16px; font-weight:700; }
   nav a { color:#333; padding:6px 0; position:relative; }
   nav a::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:var(--black); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
   nav a:hover { color:var(--black); }
   nav a:hover::after { transform:scaleX(1); }
-  .btn { display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em; padding:15px 28px; border-radius:8px; border:1.5px solid var(--black); cursor:pointer; }
+  .btn { display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em; padding:15px 28px; border-radius:8px; border:1.5px solid var(--black); cursor:pointer; transition:transform .25s cubic-bezier(.34,1.45,.44,1), background .25s ease, color .25s ease, box-shadow .25s ease; }
+  .btn:hover { transform:translateY(-2px); }
+  .btn:active { transform:scale(.97); }
   .btn.white::after { background:linear-gradient(105deg, transparent, rgba(0,0,0,.10), transparent); }
   .btn.black { background:var(--black); color:var(--white); }
   .btn.black:hover { background:#2a2a2a; }
   .btn.white { background:var(--white); color:var(--black); }
   .btn.white:hover { background:#f0f0f0; }
-  .menu-btn { display:none; width:48px; height:48px; border:none; border-radius:8px; background:var(--white); cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px; flex-shrink:0; }
-  .menu-btn span { display:block; width:20px; height:2px; background:var(--black); }
+  .menu-btn { display:none; width:48px; height:48px; border:none; border-radius:8px; background:var(--white); cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:6px; flex-shrink:0; }
+  .menu-btn span { display:block; width:26px; height:3px; background:var(--black); border-radius:2px; }
   @media (max-width:1180px) {
     nav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--white); flex-direction:column; gap:0; border-bottom:1px solid var(--line); box-shadow:0 14px 28px rgba(0,0,0,.12); z-index:60; }
     nav.open { display:flex; }
@@ -86,9 +88,14 @@
   .hero h1 { font-size:50px; line-height:1.14; margin:18px auto 14px; max-width:820px; }
   .hero p { font-size:17px; color:#444; max-width:720px; margin:0 auto 28px; }
   .hero .cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
-  .searchbar { display:flex; max-width:640px; margin:0 auto; border:1.5px solid var(--black); border-radius:12px; overflow:hidden; background:var(--white); box-shadow:0 10px 30px rgba(0,0,0,.15); }
-  .searchbar input { flex:1; min-width:0; border:none; outline:none; padding:16px 18px; font-size:16px; font-family:inherit; }
-  .searchbar button { border:none; background:var(--black); color:var(--white); padding:0 28px; font-size:15px; font-weight:700; cursor:pointer; }
+  .searchbar { display:flex; align-items:center; max-width:640px; margin:0 auto; border:1px solid #e2e2e2; border-radius:999px; background:var(--white); box-shadow:0 14px 36px rgba(0,0,0,.13); padding:6px; transition:box-shadow .25s ease, border-color .25s ease; }
+  .searchbar:focus-within { border-color:var(--black); box-shadow:0 14px 36px rgba(0,0,0,.13), 0 0 0 2px var(--black); }
+  .search-ico { display:flex; align-items:center; padding:0 4px 0 16px; color:#777; flex-shrink:0; }
+  .search-ico svg { width:20px; height:20px; }
+  .searchbar input { flex:1; min-width:0; border:none; outline:none; padding:12px 8px; font-size:16px; font-family:inherit; background:transparent; }
+  .searchbar button { border:none; background:var(--black); color:var(--white); padding:13px 28px; font-size:15px; font-weight:700; cursor:pointer; border-radius:999px; flex-shrink:0; transition:background .25s ease, transform .2s ease; }
+  .searchbar button:hover { background:#2a2a2a; }
+  .searchbar button:active { transform:scale(.96); }
   .chips { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
   .chip { border:1px solid #161616; border-radius:999px; padding:7px 16px; font-size:13px; color:#161616; cursor:pointer; background:transparent; transition:transform .25s ease, background .25s ease, color .25s ease; }
   .chip:hover, .chip.active { background:var(--black); color:var(--white); border-color:var(--black); }
@@ -96,7 +103,7 @@
   .trustbar span { color:#161616; }
   /* Hero person — Khurram Kamal on the front */
   .hero-person { text-align:center; }
-  .hero-person img { width:100%; max-width:360px; aspect-ratio:1; object-fit:cover; border-radius:50%; border:3px solid var(--black); box-shadow:0 10px 30px rgba(0,0,0,.18); display:block; margin:0 auto; animation:heroUp .8s ease both .2s; }
+  .hero-person img { width:100%; max-width:360px; aspect-ratio:1; object-fit:cover; border-radius:50%; border:3px solid var(--black); box-shadow:0 10px 30px rgba(0,0,0,.18); display:block; margin:0 auto; animation:heroPhoto .9s cubic-bezier(.22,1.3,.36,1) both .15s, photoGlow 5.5s ease-in-out 1.2s infinite alternate; }
   .hero-person .hp-name { font-family:Georgia,serif; font-size:22px; font-weight:700; color:#161616; margin-top:14px; }
   .hero-person .hp-title { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#666; margin-top:4px; }
   @media (min-width:821px) {
@@ -213,12 +220,22 @@
   .contact-info h3 { font-size:20px; margin-bottom:8px; }
   .contact-info p, .contact-info a { font-size:15px; color:#333; }
   /* Footer */
-  footer { background:var(--black); color:#aaa; padding:40px 0; text-align:center; font-size:13px; }
-  footer .fmark { width:46px; height:46px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
+  footer { background:var(--black); color:#aaa; padding:56px 0 0; font-size:14px; }
+  footer .fgrid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:36px; text-align:left; }
+  footer .fmark { width:46px; height:46px; display:flex; align-items:center; justify-content:center; margin:0 0 14px; }
   footer .fmark svg { width:42px; height:42px; }
-  footer .fname { color:var(--white); font-family:Georgia,serif; font-size:18px; letter-spacing:.18em; font-weight:700; }
+  footer .fname { color:var(--white); font-family:Georgia,serif; font-size:17px; letter-spacing:.14em; font-weight:700; }
   footer .fsub { font-size:11px; letter-spacing:.5em; color:#888; margin-top:4px; }
-  footer .fmeta { margin-top:16px; }
+  footer .fdesc { margin-top:14px; line-height:1.65; color:#999; max-width:300px; }
+  footer h4 { color:var(--white); font-size:13px; letter-spacing:.22em; text-transform:uppercase; margin:6px 0 16px; }
+  footer .fcol a { display:block; color:#aaa; text-decoration:none; padding:5px 0; transition:color .25s ease, transform .25s ease; }
+  footer .fcol a:hover { color:var(--white); transform:translateX(4px); }
+  footer .fcol p { line-height:1.65; color:#999; padding:5px 0; margin:0; }
+  footer .fcol a.fbtn { display:inline-block; margin-top:12px; border:1.5px solid #fff; color:#fff; padding:11px 20px; border-radius:8px; font-weight:700; font-size:13px; letter-spacing:.05em; }
+  footer .fcol a.fbtn:hover { background:#fff; color:var(--black); transform:none; }
+  footer .fbar { border-top:1px solid #2a2a2a; margin-top:42px; padding:20px 0 24px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px; color:#888; }
+  @media (max-width:820px) { footer .fgrid { grid-template-columns:1fr 1fr; } footer .fbrand { grid-column:1 / -1; } footer .fbar { justify-content:center; text-align:center; } }
+  @media (max-width:480px) { footer .fgrid { grid-template-columns:1fr; } }
   /* WhatsApp float */
   .wa-float { position:fixed; right:22px; bottom:22px; z-index:100; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.3); }
   .wa-float::before, .wa-float::after { content:""; position:absolute; inset:0; border-radius:50%; background:#25D366; z-index:-1; animation:waRing 2.2s ease-out infinite; }
@@ -230,6 +247,7 @@
   /* Animations */
   .hero .kicker { animation:heroUp .8s ease both; }
   .hero h1 { animation:heroUp .8s ease both .12s; }
+  .hero h1.split { animation:none; }
   .hero p { animation:heroUp .8s ease both .24s; }
   .hero .cta-row { animation:heroUp .8s ease both .36s; }
   .hero .searchbar { animation:heroUp .8s ease both .44s; }
@@ -241,16 +259,27 @@
   .lawyer:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(0,0,0,.12); }
   header { transition:box-shadow .3s ease; }
   header.scrolled { box-shadow:0 8px 26px rgba(0,0,0,.14); }
-  /* Scroll reveal: desktop only, on mobile content is always visible so nothing ever looks hidden/misaligned */
-  @media (min-width:821px) {
-    .reveal { opacity:0; transform:translateY(28px) scale(.98); transition:opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0) scale(1); }
-    .area:nth-child(3n+2) { transition-delay:.07s; }
-    .area:nth-child(3n+3) { transition-delay:.14s; }
-    .lawyer:nth-child(2) { transition-delay:.08s; }
-    .lawyer:nth-child(3) { transition-delay:.16s; }
-    .lawyer:nth-child(4) { transition-delay:.24s; }
+  /* Scroll reveal: video-style pop-in on all screens, staggered via --rd (set by JS) */
+  .reveal { opacity:0; }
+  .reveal.visible { animation:revealIn .8s cubic-bezier(.22,1.28,.36,1) both; animation-delay:var(--rd, 0s); }
+  @keyframes revealIn { from { opacity:0; transform:translateY(30px) scale(.95); } to { opacity:1; transform:translateY(0) scale(1); } }
+  @media (max-width:820px) {
+    .reveal.visible { animation-name:revealInM; animation-duration:.55s; animation-timing-function:ease; }
   }
+  @keyframes revealInM { from { opacity:0; transform:translateY(18px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+  .sec-head.reveal { opacity:1; }
+  .sec-head.reveal.visible { animation:none; }
+  /* Word-by-word heading reveal (words split by JS) */
+  .w { display:inline-block; opacity:0; transform:translateY(16px); }
+  .hero h1 .w { animation:wordUp .6s cubic-bezier(.22,1.3,.36,1) both; animation-delay:calc(.15s + var(--i) * 60ms); }
+  .sec-head.visible .w { animation:wordUp .55s cubic-bezier(.22,1.3,.36,1) both; animation-delay:calc(var(--i) * 50ms); }
+  @keyframes wordUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes popIn { from { opacity:0; transform:scale(.3); } to { opacity:1; transform:scale(1); } }
+  @keyframes heroPhoto { from { opacity:0; transform:scale(.82); } to { opacity:1; transform:scale(1); } }
+  @keyframes photoGlow { from { box-shadow:0 10px 30px rgba(0,0,0,.18); } to { box-shadow:0 18px 44px rgba(0,0,0,.26); } }
+  .area.visible .n, .step.visible .n { animation:popIn .55s cubic-bezier(.22,1.3,.36,1) both; animation-delay:calc(var(--rd, 0s) + .15s); }
+  .stat .num { display:inline-block; }
+  .stat .num.pop { animation:popIn .5s cubic-bezier(.22,1.3,.36,1) both; }
   /* Courts gallery */
   .courts { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .court { overflow:hidden; border-radius:14px; }
@@ -283,7 +312,7 @@
   /* Hero scroll-down hint */
   .scroll-hint { position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:1; width:38px; height:38px; border:1.5px solid #161616; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#161616; font-size:18px; animation:hintBounce 1.8s ease-in-out infinite; }
   @keyframes hintBounce { 0%,100% { transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(8px); } }
-  @media (prefers-reduced-motion:reduce) { * { animation:none !important; transition:none !important; } .reveal { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion:reduce) { * { animation:none !important; transition:none !important; } .reveal { opacity:1; transform:none; } .w { opacity:1; transform:none; } }
   @media (max-width:820px) {
     .hero { padding:64px 0 60px; }
     .hero h1 { font-size:34px; }
@@ -309,18 +338,19 @@
   @media (max-width:480px) {
     .hero h1 { font-size:28px; }
     .hero p { font-size:15px; }
-    .brand .bname { font-size:14px; letter-spacing:.03em; }
-    .brand .bsub { font-size:9px; }
+    .brand .bname { font-size:16px; letter-spacing:.03em; }
+    .brand .bsub { font-size:10px; }
     .head .btn.black { display:none; }
     .wrap { padding:0 16px; }
-    .logo-mark { width:48px; height:48px; }
-    .logo-mark svg { width:44px; height:44px; }
-    .menu-btn { width:44px; height:44px; }
+    .logo-mark { width:56px; height:56px; }
+    .logo-mark svg { width:52px; height:52px; }
+    .menu-btn { width:48px; height:48px; }
     .hero .kicker .ksep { display:none; }
     .hero .kicker .k2 { display:block; margin-top:6px; }
-    .searchbar { flex-direction:column; }
-    .searchbar button { padding:14px; width:100%; }
-    .searchbar input { padding:14px 12px; font-size:15px; }
+    .searchbar { flex-direction:row; padding:5px; }
+    .searchbar button { padding:11px 20px; width:auto; font-size:14px; }
+    .searchbar input { padding:10px 6px; font-size:15px; }
+    .search-ico { padding:0 2px 0 12px; }
     .topbar { font-size:11px; }
     h2 { font-size:28px; }
     section { padding:52px 0; }
@@ -328,13 +358,13 @@
     .lawyer.featured .photo { width:100%; height:auto; aspect-ratio:1; }
   }
   @media (max-width:400px) {
-    .brand .bname { font-size:13px; }
+    .brand .bname { font-size:14px; }
   }
   @media (max-width:360px) {
-    .brand .bname { font-size:12px; letter-spacing:.01em; }
-    .brand .bsub { font-size:8px; }
-    .logo-mark { width:44px; height:44px; }
-    .logo-mark svg { width:40px; height:40px; }
+    .brand .bname { font-size:13px; letter-spacing:.01em; }
+    .brand .bsub { font-size:8.5px; }
+    .logo-mark { width:48px; height:48px; }
+    .logo-mark svg { width:44px; height:44px; }
     .menu-btn { width:44px; height:44px; }
   }
 </style>
@@ -361,7 +391,7 @@
       <a href="#how">How It Works</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn black" href="#contact">Book Consultation</a>
+    <a class="btn black" href="https://wa.me/923456976866?text=Hello%20Khurram%20Kamal%20Associates%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Book Consultation</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -379,10 +409,11 @@
       <h1>Facing a legal matter? Get advice from advocates who prepare every case as if it were their own.</h1>
       <p>This is the official website of Khurram Kamal Associates (KKA), a litigation law firm at Fareed Chambers, Saddar, Karachi, appearing before the High Court, District Courts and Special Courts. We act for individuals, families, businesses and institutions across Karachi.</p>
       <div class="cta-row">
-        <a class="btn black" href="#contact">Book Consultation</a>
+        <a class="btn black" href="https://wa.me/923456976866?text=Hello%20Khurram%20Kamal%20Associates%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Book Consultation</a>
         <a class="btn white" href="#practice">Browse Practice Areas</a>
       </div>
       <form class="searchbar" id="searchForm">
+        <span class="search-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></span>
         <input id="areaSearch" type="text" placeholder="Search practice area, e.g. Criminal, Family, IP…" autocomplete="off">
         <button type="submit">Search</button>
       </form>
@@ -440,9 +471,9 @@
         <p>Our advocates appear before the High Court, the District Courts and the Special Courts, from Fareed Chambers, minutes from the Sindh High Court.</p>
       </div>
       <div class="courts">
-        <figure class="court"><img src="images/sindh-high-court.jpg" alt="Sindh High Court, Karachi"><figcaption><strong>Sindh High Court</strong><span>Karachi</span></figcaption></figure>
-        <figure class="court"><img src="images/city-court.jpg" alt="City Court, Karachi"><figcaption><strong>City Court</strong><span>Karachi, District Courts</span></figcaption></figure>
-        <figure class="court"><img src="images/supreme-court.jpg" alt="Supreme Court of Pakistan, Islamabad"><figcaption><strong>Supreme Court of Pakistan</strong><span>Islamabad</span></figcaption></figure>
+        <figure class="court"><img src="images/sindh-high-court.jpg" alt="Sindh High Court, Karachi" loading="lazy" decoding="async"><figcaption><strong>Sindh High Court</strong><span>Karachi</span></figcaption></figure>
+        <figure class="court"><img src="images/city-court.jpg" alt="City Court, Karachi" loading="lazy" decoding="async"><figcaption><strong>City Court</strong><span>Karachi, District Courts</span></figcaption></figure>
+        <figure class="court"><img src="images/supreme-court.jpg" alt="Supreme Court of Pakistan, Islamabad" loading="lazy" decoding="async"><figcaption><strong>Supreme Court of Pakistan</strong><span>Islamabad</span></figcaption></figure>
       </div>
       <p class="bar-line"><strong>Bar Memberships:</strong> Sindh High Court Bar Association &nbsp;·&nbsp; Karachi Bar Association &nbsp;·&nbsp; Sindh Bar Council &nbsp;·&nbsp; International Bar Association, London.</p>
     </div>
@@ -505,7 +536,7 @@
       </div>
       <div class="lawyers">
         <article class="lawyer featured">
-          <img class="photo" src="images/khurram-kamal-sq.jpg" alt="Syed Khurram Kamal, Advocate of the High Court">
+          <img class="photo" src="images/khurram-kamal-sq.jpg" alt="Syed Khurram Kamal, Advocate of the High Court" loading="lazy" decoding="async">
           <div class="info">
             <h3>Syed Khurram Kamal</h3>
             <div class="title">Advocate of the High Court · Managing Partner</div>
@@ -524,7 +555,7 @@
           </div>
         </article>
         <article class="lawyer">
-          <img class="photo" src="images/kausar-saba-sq.jpg" alt="Kausar Saba, Advocate of the High Court of Sindh">
+          <img class="photo" src="images/kausar-saba-sq.jpg" alt="Kausar Saba, Advocate of the High Court of Sindh" loading="lazy" decoding="async">
           <div class="info">
             <h3>Kausar Saba</h3>
             <div class="title">Advocate, High Court of Sindh</div>
@@ -542,7 +573,7 @@
           </div>
         </article>
         <article class="lawyer">
-          <img class="photo" src="images/sadia-khatoon-sq.jpg" alt="Advocate Sadia Khatoon">
+          <img class="photo" src="images/sadia-khatoon-sq.jpg" alt="Advocate Sadia Khatoon" loading="lazy" decoding="async">
           <div class="info">
             <h3>Advocate Sadia Khatoon</h3>
             <div class="title">Advocate of the High Court · Ledger No. 7430-HC-KHI</div>
@@ -560,7 +591,7 @@
           </div>
         </article>
         <article class="lawyer">
-          <img class="photo" src="images/yereha-jafferi-sq.jpg" alt="Yereha Jafferi, Advocate">
+          <img class="photo" src="images/yereha-jafferi-sq.jpg" alt="Yereha Jafferi, Advocate" loading="lazy" decoding="async">
           <div class="info">
             <h3>Yereha Jafferi</h3>
             <div class="title">Advocate</div>
@@ -667,7 +698,7 @@
     <div class="wrap">
       <h2>Facing a legal matter? Talk to an advocate today.</h2>
       <p>Book a consultation with Khurram Kamal Associates, and get clear advice on your next step.</p>
-      <a class="btn white" href="#contact">Book Consultation</a>
+      <a class="btn white" href="https://wa.me/923456976866?text=Hello%20Khurram%20Kamal%20Associates%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Book Consultation</a>
     </div>
   </section>
 
@@ -736,10 +767,44 @@
 
 <footer>
   <div class="wrap">
-    <div class="fmark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g fill="#fff" stroke="#fff"><circle cx="50" cy="14" r="4"/><rect x="48" y="18" width="4" height="56"/><path d="M16 30 H84" stroke-width="4" stroke-linecap="round"/><circle cx="16" cy="30" r="3"/><circle cx="84" cy="30" r="3"/><path d="M16 30 L8 52 M16 30 L24 52" stroke-width="1.6"/><path d="M84 30 L76 52 M84 30 L92 52" stroke-width="1.6"/><path d="M6 52 Q16 68 26 52 Z"/><path d="M74 52 Q84 68 94 52 Z"/><rect x="38" y="74" width="24" height="5" rx="1"/><rect x="32" y="79" width="36" height="5" rx="1"/></g></svg></div>
-    <div class="fname">KHURRAM KAMAL ASSOCIATES</div>
-    <div class="fsub">THE LAW FIRM</div>
-    <div class="fmeta">55-C, 5th Floor, Fareed Chambers, Abdullah Haroon Road, Saddar, Karachi<br>© 2026 Khurram Kamal Associates. All rights reserved.</div>
+    <div class="fgrid">
+      <div class="fcol fbrand">
+        <div class="fmark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g fill="#fff" stroke="#fff"><circle cx="50" cy="14" r="4"/><rect x="48" y="18" width="4" height="56"/><path d="M16 30 H84" stroke-width="4" stroke-linecap="round"/><circle cx="16" cy="30" r="3"/><circle cx="84" cy="30" r="3"/><path d="M16 30 L8 52 M16 30 L24 52" stroke-width="1.6"/><path d="M84 30 L76 52 M84 30 L92 52" stroke-width="1.6"/><path d="M6 52 Q16 68 26 52 Z"/><path d="M74 52 Q84 68 94 52 Z"/><rect x="38" y="74" width="24" height="5" rx="1"/><rect x="32" y="79" width="36" height="5" rx="1"/></g></svg></div>
+        <div class="fname">KHURRAM KAMAL ASSOCIATES</div>
+        <div class="fsub">THE LAW FIRM</div>
+        <p class="fdesc">Advocates and legal consultants in Saddar, Karachi, representing clients before the High Court of Sindh, district courts and special courts since 2016.</p>
+      </div>
+      <div class="fcol">
+        <h4>Pages</h4>
+        <a href="#top">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#practice">Practice Areas</a>
+        <a href="#team">Our Lawyers</a>
+        <a href="#cases">Latest Cases</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="fcol">
+        <h4>Practice Areas</h4>
+        <a href="#practice">Constitutional Law</a>
+        <a href="#practice">Corporate Law</a>
+        <a href="#practice">Criminal Law</a>
+        <a href="#practice">Family Law</a>
+        <a href="#practice">Banking Law</a>
+        <a href="#practice">View All Areas →</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <p>55-C, 5th Floor, Fareed Chambers, Abdullah Haroon Road, Saddar, Karachi</p>
+        <a href="mailto:syedkhurramk44@gmail.com">syedkhurramk44@gmail.com</a>
+        <a href="https://wa.me/923456976866" target="_blank" rel="noopener">WhatsApp: 0345 6976866</a>
+        <a class="fbtn" href="https://wa.me/923456976866?text=Hello%20Khurram%20Kamal%20Associates%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Book a Consultation</a>
+      </div>
+    </div>
+    <div class="fbar">
+      <span>© 2026 Khurram Kamal Associates. All rights reserved.</span>
+      <span>Advocates · High Court of Sindh · Karachi</span>
+    </div>
   </div>
 </footer>
 
@@ -762,9 +827,35 @@
     mainNav.classList.remove('open');
     menuBtn.setAttribute('aria-expanded', 'false');
   }));
-  // Scroll reveal (desktop only, mobile content is always visible)
-  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
-  document.querySelectorAll('section .sec-head, .area, .lawyer, .step, .why div, .faq details, .acc details, .serve div, .court, .case, .contact-grid > *, footer .wrap').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+  // Word-by-word split for headings (video-style stagger)
+  function splitWords(el) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    let i = 0;
+    nodes.forEach(node => {
+      const frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+        const s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = part;
+        frag.appendChild(s);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  const heroH1 = document.querySelector('.hero h1');
+  if (heroH1) { splitWords(heroH1); heroH1.classList.add('split'); }
+  document.querySelectorAll('.sec-head h2').forEach(splitWords);
+  // Scroll reveal (all screens; gentler on mobile via CSS)
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('section .sec-head, .area, .lawyer, .step, .why div, .faq details, .acc details, .serve div, .court, .case, .contact-grid > *, footer .wrap').forEach(el => {
+    el.classList.add('reveal');
+    const sibs = Array.from(el.parentNode.children).filter(c => c.classList && c.classList.contains('reveal'));
+    el.style.setProperty('--rd', Math.min(sibs.length, 8) * 60 + 'ms');
+    io.observe(el);
+  });
+  // Failsafe: never leave on-screen content hidden
+  setTimeout(() => document.querySelectorAll('.reveal:not(.visible), .sec-head:not(.visible)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight) el.classList.add('visible'); }), 2500);
   // Animated counters (skip the year 2016)
   const cio = new IntersectionObserver((es) => es.forEach(e => {
     if (!e.isIntersecting) return; cio.unobserve(e.target);
@@ -772,7 +863,7 @@
     if (raw === '2016') return;
     const target = parseInt(raw, 10), suffix = raw.replace(/[0-9]/g, '');
     const t0 = performance.now(), dur = 1400;
-    (function tick(t) { const p = Math.min((t - t0) / dur, 1); el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix; if (p < 1) requestAnimationFrame(tick); })(t0);
+    (function tick(t) { const p = Math.min((t - t0) / dur, 1); el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix; if (p < 1) requestAnimationFrame(tick); else el.classList.add('pop'); })(t0);
   }), { threshold: 0.5 });
   document.querySelectorAll('.stat .num').forEach(c => cio.observe(c));
   // Header shadow on scroll
