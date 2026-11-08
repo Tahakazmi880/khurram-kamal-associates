@@ -299,6 +299,15 @@
   .case .forum { font-size:13px; font-weight:700; color:var(--muted); margin-bottom:10px; }
   .case p { font-size:14px; color:#444; }
   .cases-note { text-align:center; color:var(--muted); font-size:14px; margin-top:26px; }
+  /* Achievements photo cards */
+  .ach { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .achcard { background:var(--white); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,.05); }
+  .achcard img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; }
+  .achcard .cap { padding:20px 22px; }
+  .achcard .cap strong { font-family:Georgia,serif; font-size:19px; display:block; margin-bottom:6px; }
+  .achcard .cap p { font-size:14px; color:#444; }
+  .achcard.full { grid-column:1 / -1; }
+  .achcard.full img { aspect-ratio:21/9; object-position:center 22%; }
   /* Header / topbar / logo entrance */
   header { animation:slideDown .6s ease backwards; }
   @keyframes slideDown { from { transform:translateY(-100%); } to { transform:translateY(0); } }
@@ -317,7 +326,8 @@
   @media (max-width:820px) {
     .hero { padding:64px 0 60px; }
     .hero h1 { font-size:34px; }
-    .areas, .steps, .serve, .courts, .cases { grid-template-columns:1fr; }
+    .areas, .steps, .serve, .courts, .cases, .ach { grid-template-columns:1fr; }
+    .achcard.full img { aspect-ratio:3/2; }
     .lawyer { flex-direction:column; }
     .lawyer .photo, .lawyer .photo-placeholder { width:280px; height:280px; font-size:76px; }
     .lawyer.featured .photo { width:320px; height:320px; }
@@ -617,6 +627,30 @@
         <article class="case"><span class="status">Ongoing</span><h3>KPT Panel Matters</h3><p class="forum">Panel Advocate, Karachi Port Trust</p><p>Matters for the Karachi Port Trust as Panel Advocate.</p><div class="tags"><span class="tag">Panel Matters</span></div></article>
       </div>
       <p class="cases-note">For details of a specific matter, contact the firm directly.</p>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Achievements</div>
+        <h2>Recognition and professional engagements.</h2>
+        <p>Honours, awards and speaking engagements of Syed Khurram Kamal at national and international forums.</p>
+      </div>
+      <div class="ach">
+        <figure class="achcard full">
+          <img src="images/award-integrity-seminar.jpg" alt="Syed Khurram Kamal receiving a certificate from Justice (R) Muhammad Shaiq Usmani at the Seminar on Promoting the Culture of Integrity, Arts Council of Pakistan, Karachi" loading="lazy">
+          <figcaption class="cap"><strong>Seminar on Promoting the Culture of Integrity</strong><p>Certificate received from the Chief Guest, Justice (R) Muhammad Shaiq Usmani, at the seminar held at the Arts Council of Pakistan, Karachi, on 10 December 2025.</p></figcaption>
+        </figure>
+        <figure class="achcard">
+          <img src="images/award-unodc-fmu.jpg" alt="Syed Khurram Kamal receiving a shield at the UNODC and Financial Monitoring Unit consultative workshop in Karachi" loading="lazy">
+          <figcaption class="cap"><strong>UNODC and FMU Consultative Workshop</strong><p>Recognition at the consultative workshop on the effective use of financial intelligence products, organised by the United Nations Office on Drugs and Crime (UNODC) and the Financial Monitoring Unit, Government of Pakistan, in Karachi.</p></figcaption>
+        </figure>
+        <figure class="achcard">
+          <img src="images/speaking-workshop.jpg" alt="Syed Khurram Kamal speaking at the UNODC and Financial Monitoring Unit workshop" loading="lazy">
+          <figcaption class="cap"><strong>Speaker, Financial Intelligence Workshop</strong><p>Addressing participants at the UNODC and Financial Monitoring Unit consultative workshop on financial intelligence and law enforcement feedback.</p></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
