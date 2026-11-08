@@ -52,28 +52,27 @@
   .topbar .wrap { display:flex; justify-content:space-between; gap:16px; padding-top:9px; padding-bottom:9px; flex-wrap:wrap; }
   .topbar a:hover { color:var(--white); }
   /* Header */
-  header { position:sticky; top:0; z-index:50; background:linear-gradient(180deg, var(--navy), var(--navy2)); border-bottom:2px solid var(--gold); }
+  header { position:sticky; top:0; z-index:50; background:var(--white); border-bottom:4px solid var(--black); }
   .head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; flex-wrap:nowrap; }
-  .head .btn { padding:11px 18px; background:transparent; color:var(--gold); border-color:var(--gold); }
-  .head .btn:hover { background:var(--gold); color:var(--navy2); }
+  .head .btn { padding:12px 20px; }
   .brand { display:flex; align-items:center; gap:14px; }
   .logo-mark { height:56px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .logo-mark svg { height:54px; width:auto; }
-  .brand .bname { font-family:Georgia,serif; font-weight:700; font-size:21px; letter-spacing:.14em; line-height:1.15; white-space:nowrap; color:#fff; }
+  .brand .bname { font-family:Georgia,serif; font-weight:700; font-size:21px; letter-spacing:.14em; line-height:1.15; white-space:nowrap; color:var(--ink); }
   .brand > div:last-child { text-align:left; }
-  .brand .band { font-family:Georgia,serif; font-size:12.5px; letter-spacing:.42em; color:var(--gold); margin-top:2px; white-space:nowrap; }
-  .brand .bsub { font-size:8.5px; letter-spacing:.24em; color:#B9C4CE; margin-top:5px; white-space:nowrap; }
+  .brand .band { font-family:Georgia,serif; font-size:12.5px; letter-spacing:.42em; color:#8a6d2f; margin-top:2px; white-space:nowrap; }
+  .brand .bsub { font-size:8.5px; letter-spacing:.24em; color:var(--muted); margin-top:5px; white-space:nowrap; }
   nav { display:flex; gap:22px; font-size:14.5px; font-weight:600; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; }
   nav::-webkit-scrollbar { display:none; }
-  nav a { color:#E8EDF1; padding:6px 0; position:relative; white-space:nowrap; }
-  nav a::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
-  nav a:hover { color:var(--gold); }
+  nav a { color:#333; padding:6px 0; position:relative; white-space:nowrap; }
+  nav a::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:var(--black); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+  nav a:hover { color:var(--black); }
   nav a:hover::after { transform:scaleX(1); }
-  nav a.active { color:var(--gold); }
+  nav a.active { color:var(--black); }
   nav a.active::after { transform:scaleX(1); }
-  .search-ico-h { display:flex; align-items:center; color:#E8EDF1; flex-shrink:0; }
+  .search-ico-h { display:flex; align-items:center; color:#333; flex-shrink:0; }
   .search-ico-h svg { width:21px; height:21px; }
-  .search-ico-h:hover { color:var(--gold); }
+  .search-ico-h:hover { color:var(--black); }
   .btn { display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em; padding:15px 28px; border-radius:8px; border:1.5px solid var(--black); cursor:pointer; white-space:nowrap; transition:transform .25s cubic-bezier(.34,1.45,.44,1), background .25s ease, color .25s ease, box-shadow .25s ease; }
   .btn:hover { transform:translateY(-2px); }
   .btn:active { transform:scale(.97); }
@@ -83,12 +82,12 @@
   .btn.white { background:var(--white); color:var(--black); }
   .btn.white:hover { background:#f0f0f0; }
   .menu-btn { display:none; width:48px; height:48px; border:none; border-radius:8px; background:transparent; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:6px; flex-shrink:0; }
-  .menu-btn span { display:block; width:26px; height:3px; background:var(--gold); border-radius:2px; }
+  .menu-btn span { display:block; width:26px; height:3px; background:var(--black); border-radius:2px; }
   @media (min-width:1181px) { .head { justify-content:space-between; } }
   @media (max-width:1180px) {
-    nav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--navy2); flex-direction:column; gap:0; border-bottom:2px solid var(--gold); box-shadow:0 14px 28px rgba(0,0,0,.35); z-index:60; }
+    nav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--white); flex-direction:column; gap:0; border-bottom:1px solid var(--line); box-shadow:0 14px 28px rgba(0,0,0,.12); z-index:60; }
     nav.open { display:flex; }
-    nav a { padding:15px 24px; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; }
+    nav a { padding:15px 24px; border-bottom:1px solid #f0f0f0; font-size:14px; }
     nav a:last-child { border-bottom:none; }
     .menu-btn { display:flex; }
   }
@@ -354,13 +353,13 @@
     .stat:nth-child(n+3) { border-top:1px solid var(--line); }
     .topbar .wrap { justify-content:center; text-align:center; }
     .menu-btn { display:flex; }
-    nav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--navy2); flex-direction:column; gap:0; border-bottom:2px solid var(--gold); box-shadow:0 14px 28px rgba(0,0,0,.35); z-index:60; }
+    nav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--white); flex-direction:column; gap:0; border-bottom:1px solid var(--line); box-shadow:0 14px 28px rgba(0,0,0,.12); z-index:60; }
     nav.open { display:flex; }
-    nav a { padding:15px 24px; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; }
+    nav a { padding:15px 24px; border-bottom:1px solid #f0f0f0; font-size:14px; }
     nav a:last-child { border-bottom:none; }
     .head { flex-wrap:nowrap; }
     .head { flex-wrap:nowrap; }
-    .head .btn { padding:10px 14px; font-size:12.5px; background:var(--black); color:var(--gold); border-color:var(--black); }
+    .head .btn { padding:10px 14px; font-size:12.5px; }
     .cta-banner h2 { font-size:28px; }
   }
   @media (max-width:480px) {
@@ -369,7 +368,7 @@
     .brand .bname { font-size:15.5px; letter-spacing:.1em; }
     .brand .band { font-size:10.5px; letter-spacing:.34em; }
     .brand .bsub { display:none; }
-    .head .btn { display:inline-block; background:var(--black); color:var(--gold); border-color:var(--black); padding:10px 14px; font-size:12.5px; }
+    .head .btn { display:inline-block; padding:10px 14px; font-size:12.5px; }
     .search-ico-h { display:none; }
     .wrap { padding:0 16px; }
     .logo-mark { height:46px; }
@@ -404,7 +403,7 @@
 <header>
   <div class="wrap head">
     <a class="brand" href="#top" style="flex-shrink:0">
-      <div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><text x="30" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#C6A15B">K</text><text x="41" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#C6A15B">K</text><rect x="57" y="12" width="2.4" height="40" fill="#C6A15B"/></svg></div>
+      <div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><text x="30" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#A8842C">K</text><text x="41" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#A8842C">K</text><rect x="57" y="12" width="2.4" height="40" fill="#A8842C"/></svg></div>
       <div><div class="bname">KHURRAM KAMAL</div><div class="band">AND ASSOCIATES</div><div class="bsub">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</div></div>
     </a>
     <nav id="mainNav">
@@ -786,7 +785,7 @@
   <div class="wrap">
     <div class="fgrid">
       <div class="fcol fbrand">
-        <div class="fmark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><text x="30" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#C6A15B">K</text><text x="41" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#C6A15B">K</text><rect x="57" y="12" width="2.4" height="40" fill="#C6A15B"/></svg></div>
+        <div class="fmark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><text x="30" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#A8842C">K</text><text x="41" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#A8842C">K</text><rect x="57" y="12" width="2.4" height="40" fill="#A8842C"/></svg></div>
         <div class="fname">KHURRAM KAMAL</div>
         <div class="fname2">AND ASSOCIATES</div>
         <div class="fsub">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</div>
