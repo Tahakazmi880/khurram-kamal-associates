@@ -478,6 +478,21 @@
     .feat-grid { grid-template-columns:1fr; }
     .hero2 h1 { font-size:31px; }
   }
+
+  /* ===== Team cards size fix (appended): photos too large for the screen ===== */
+  .lawyer { gap:24px; padding:24px; }
+  .lawyer .photo { width:210px; height:210px; }
+  .lawyer.featured .photo { width:250px; height:250px; }
+  .lawyer.featured h3 { font-size:26px; }
+  .lawyer .photo-placeholder { width:210px; height:210px; }
+  @media (max-width:900px) {
+    .lawyer .photo, .lawyer .photo-placeholder { width:190px; height:190px; }
+    .lawyer.featured .photo { width:210px; height:210px; }
+  }
+  @media (max-width:480px) {
+    .lawyer .photo, .lawyer .photo-placeholder { width:100%; height:auto; aspect-ratio:1; }
+    .lawyer.featured .photo { width:100%; height:auto; aspect-ratio:1; }
+  }
 </style>
 </head>
 <body>
@@ -672,7 +687,7 @@
       </div>
       <div class="lawyers" id="lawyers">
         <article class="lawyer featured" id="khurram-profile">
-          <img class="photo" src="images/khurram-kamal-sq.jpg" alt="Syed Khurram Kamal, Advocate of the High Court" loading="lazy" decoding="async">
+          <img class="photo" src="images/khurram-kamal-sq.jpg" alt="Syed Khurram Kamal, Advocate of the High Court" decoding="async">
           <div class="info">
             <h3>Syed Khurram Kamal</h3>
             <div class="title">Advocate of the High Court · Managing Partner</div>
@@ -691,7 +706,7 @@
           </div>
         </article>
         <article class="lawyer">
-          <img class="photo" src="images/kausar-saba-sq.jpg" alt="Kausar Saba, Advocate of the High Court of Sindh" loading="lazy" decoding="async">
+          <img class="photo" src="images/kausar-saba-sq.jpg" alt="Kausar Saba, Advocate of the High Court of Sindh" decoding="async">
           <div class="info">
             <h3>Kausar Saba</h3>
             <div class="title">Advocate, High Court of Sindh</div>
@@ -709,7 +724,7 @@
           </div>
         </article>
         <article class="lawyer">
-          <img class="photo" src="images/sadia-khatoon-sq.jpg" alt="Sadia Khatoon" loading="lazy" decoding="async">
+          <img class="photo" src="images/sadia-khatoon-sq.jpg" alt="Sadia Khatoon" decoding="async">
           <div class="info">
             <h3>Sadia Khatoon</h3>
             <div class="title">Advocate of the High Court · Ledger No. 7430-HC-KHI</div>
@@ -727,7 +742,7 @@
           </div>
         </article>
         <article class="lawyer">
-          <img class="photo" src="images/yereha-jafferi-sq.jpg" alt="Yereha Jafferi, Advocate" loading="lazy" decoding="async">
+          <img class="photo" src="images/yereha-jafferi-sq.jpg" alt="Yereha Jafferi, Advocate" decoding="async">
           <div class="info">
             <h3>Yereha Jafferi</h3>
             <div class="title">Advocate</div>
