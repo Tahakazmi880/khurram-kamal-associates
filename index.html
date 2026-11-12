@@ -53,15 +53,16 @@
   .topbar a:hover { color:var(--white); }
   /* Header */
   header { position:sticky; top:0; z-index:50; background:var(--white); border-bottom:4px solid var(--black); }
-  .head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; flex-wrap:nowrap; }
-  .head .btn { padding:12px 20px; }
-  .brand { display:flex; align-items:center; gap:14px; }
-  .logo-mark { width:64px; height:64px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .logo-mark svg { height:64px; width:64px; }
-  .brand .bname { font-family:Georgia,serif; font-weight:700; font-size:21px; letter-spacing:.14em; line-height:1.15; white-space:nowrap; color:var(--ink); }
+  .head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:10px 0; flex-wrap:nowrap; }
+  .head .btn { padding:11px 18px; font-size:13.5px; }
+  .brand { display:flex; align-items:center; gap:14px; min-width:0; }
+  .logo-mark { width:54px; height:54px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .logo-mark svg { height:54px; width:54px; }
+  .brand-sep { width:2px; height:50px; background:linear-gradient(180deg, rgba(168,132,44,0) 0%, #A8842C 22%, #A8842C 78%, rgba(168,132,44,0) 100%); flex-shrink:0; }
+  .brand .bname { font-family:Georgia,serif; font-weight:700; font-size:19px; letter-spacing:.13em; line-height:1.12; white-space:nowrap; color:var(--ink); }
   .brand > div:last-child { text-align:left; }
-  .brand .band { font-family:Georgia,serif; font-size:12.5px; letter-spacing:.42em; color:#8a6d2f; margin-top:2px; white-space:nowrap; }
-  .brand .bsub { font-size:8.5px; letter-spacing:.24em; color:var(--muted); margin-top:5px; white-space:nowrap; }
+  .brand .band { font-family:Georgia,serif; font-size:11.5px; letter-spacing:.4em; color:#8a6d2f; margin-top:2px; white-space:nowrap; }
+  .brand .bsub { font-size:8px; letter-spacing:.22em; color:var(--muted); margin-top:4px; white-space:nowrap; }
   nav { display:flex; gap:22px; font-size:14.5px; font-weight:600; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; }
   nav::-webkit-scrollbar { display:none; }
   nav a { color:#333; padding:6px 0; position:relative; white-space:nowrap; }
@@ -71,6 +72,7 @@
   nav a.active { color:var(--black); }
   nav a.active::after { transform:scaleX(1); }
   .search-ico-h { display:flex; align-items:center; color:#333; flex-shrink:0; }
+  nav a.nav-cta { display:none; }
   .search-ico-h svg { width:21px; height:21px; }
   .search-ico-h:hover { color:var(--black); }
   .btn { display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em; padding:15px 28px; border-radius:8px; border:1.5px solid var(--black); cursor:pointer; white-space:nowrap; transition:transform .25s cubic-bezier(.34,1.45,.44,1), background .25s ease, color .25s ease, box-shadow .25s ease; }
@@ -368,11 +370,14 @@
     .brand .bname { font-size:15.5px; letter-spacing:.1em; }
     .brand .band { font-size:10.5px; letter-spacing:.34em; }
     .brand .bsub { display:none; }
-    .head .btn { display:inline-block; padding:10px 14px; font-size:12.5px; }
+    .head .btn { display:none; }
+    nav a.nav-cta { display:block; color:#8a6d2f; font-weight:700; }
+    .brand { gap:10px; }
     .search-ico-h { display:none; }
     .wrap { padding:0 16px; }
-    .logo-mark { height:46px; }
-    .logo-mark svg { height:44px; }
+    .logo-mark { width:46px; height:46px; }
+    .logo-mark svg { width:44px; height:44px; }
+    .brand-sep { height:42px; }
     .menu-btn { width:48px; height:48px; }
     .hero .kicker .ksep { display:none; }
     .hero .kicker .k2 { display:block; margin-top:6px; }
@@ -392,8 +397,9 @@
   @media (max-width:360px) {
     .brand .bname { font-size:13px; letter-spacing:.01em; }
     .brand .bsub { font-size:8.5px; }
-    .logo-mark { width:48px; height:48px; }
-    .logo-mark svg { width:44px; height:44px; }
+    .logo-mark { width:42px; height:42px; }
+    .logo-mark svg { width:40px; height:40px; }
+    .brand-sep { height:36px; }
     .menu-btn { width:44px; height:44px; }
   }
 </style>
@@ -404,7 +410,8 @@
   <div class="wrap head">
     <a class="brand" href="#top" style="flex-shrink:0">
       <div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#A8842C">K</text><text x="41" y="53" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#A8842C">K</text></svg></div>
-      <div><div class="bname">KHURRAM KAMAL</div><div class="band">AND ASSOCIATES</div><div class="bsub">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</div></div>
+      <div class="brand-sep" aria-hidden="true"></div>
+      <div><div class="bname">KHURRAM KAMAL</div><div class="band">&amp; ASSOCIATES</div><div class="bsub">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</div></div>
     </a>
     <nav id="mainNav">
       <a href="#top" class="active">Home</a>
@@ -413,6 +420,7 @@
       <a href="#team">Our Team</a>
       <a href="#cases">Notable Cases</a>
       <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/923456976866?text=Hello%20Khurram%20Kamal%20Associates%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Book Consultation</a>
     </nav>
     <a class="btn black" href="https://wa.me/923456976866?text=Hello%20Khurram%20Kamal%20Associates%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Book Consultation</a>
     <a class="search-ico-h" href="#practice" aria-label="Search practice areas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
@@ -429,7 +437,7 @@
         <div class="hp-title">Advocate High Court &middot; Managing Partner</div>
       </div>
       <div class="hero-copy">
-      <div class="kicker"><span class="k1">KHURRAM KAMAL AND ASSOCIATES</span><span class="ksep"> &nbsp;·&nbsp; </span><span class="k2">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</span></div>
+      <div class="kicker"><span class="k1">KHURRAM KAMAL &amp; ASSOCIATES</span><span class="ksep"> &nbsp;·&nbsp; </span><span class="k2">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</span></div>
       <h1>Facing a legal matter? Get advice from advocates who prepare every case as if it were their own.</h1>
       <p>This is the official website of Khurram Kamal Associates (KKA), a litigation law firm in Saddar, Karachi, appearing before the High Court, District Courts and Special Courts. We act for individuals, families, businesses and institutions across Karachi.</p>
       <div class="cta-row">
@@ -787,7 +795,7 @@
       <div class="fcol fbrand">
         <div class="fmark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#C6A15B">K</text><text x="41" y="53" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#C6A15B">K</text></svg></div>
         <div class="fname">KHURRAM KAMAL</div>
-        <div class="fname2">AND ASSOCIATES</div>
+        <div class="fname2">&amp; ASSOCIATES</div>
         <div class="fsub">ADVOCATES | LEGAL CONSULTANTS | BARRISTERS</div>
         <p class="fdesc">Advocates and legal consultants in Saddar, Karachi, representing clients before the High Court of Sindh, district courts and special courts since 2016.</p>
       </div>
