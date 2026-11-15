@@ -203,7 +203,7 @@
   footer .fmark svg { height:56px; width:56px; }
   footer .fstack { display:flex; flex-direction:column; align-items:center; margin:0 0 14px; }
   footer .fstack .fmark { margin:0; }
-  footer .fsub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#D9BC6A; white-space:nowrap; margin-top:-4px; transform:translateX(.11em); }
+  footer .fstack .fsub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#D9BC6A; white-space:nowrap; margin-top:-4px; transform:translateX(.11em); }
   footer .fname { color:var(--white); font-family:Georgia,serif; font-size:17px; letter-spacing:.14em; font-weight:700; }
   footer .fname2 { color:var(--gold); font-family:Georgia,serif; font-size:12px; letter-spacing:.42em; margin-top:3px; }
   footer .fsub { font-size:9px; letter-spacing:.24em; color:#8FA1B0; margin-top:6px; }
