@@ -363,8 +363,9 @@
   }
 
   /* ===== Redesign: navy hero, featured areas, about, team intro ===== */
-  .hero2 { position:relative; overflow:hidden; color:var(--white); padding:88px 0 80px; border-bottom:3px solid var(--gold); background:radial-gradient(720px 340px at 88% -10%, rgba(198,161,91,.16), rgba(198,161,91,0) 62%), linear-gradient(120deg, #0d2a47 0%, var(--navy) 46%, var(--navy2) 100%); }
-  .hero2-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center; position:relative; z-index:1; }
+  .hero2 { position:relative; overflow:hidden; color:var(--white); padding:88px 0 80px; border-bottom:3px solid var(--gold); background:linear-gradient(90deg, #0B2239 0%, #0B2239 42%, rgba(11,34,57,.74) 68%, rgba(11,34,57,.40) 100%), url('images/hero-scene.jpg') center/cover no-repeat, var(--navy); }
+  .hero2-grid { display:grid; grid-template-columns:1fr; gap:60px; align-items:center; position:relative; z-index:1; }
+  .hero2-copy { max-width:660px; }
   .hero2-kicker { display:flex; align-items:center; gap:14px; font-size:12px; letter-spacing:.35em; font-weight:700; color:var(--gold); text-transform:uppercase; }
   .hero2-kicker::before { content:""; width:38px; height:2px; background:var(--gold); flex-shrink:0; }
   .hero2 h1 { font-size:56px; line-height:1.1; margin:22px 0 20px; color:var(--white); }
