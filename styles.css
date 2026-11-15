@@ -265,6 +265,9 @@
   .courts { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .court { overflow:hidden; border-radius:14px; }
   .court img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; display:block; transition:transform .5s ease; }
+  .court-wide-sec { padding:70px 0 12px; }
+  .court-wide img { aspect-ratio:auto; height:340px; object-position:center 35%; }
+  @media (max-width:820px) { .court-wide img { height:220px; } }
   .court:hover img { transform:scale(1.06); }
   .court figcaption { margin-top:12px; }
   .court figcaption strong { font-family:Georgia,serif; font-size:18px; display:block; }
