@@ -365,7 +365,7 @@
   }
 
   /* ===== Redesign: navy hero, featured areas, about, team intro ===== */
-  .hero2 { position:relative; overflow:hidden; color:var(--white); padding:88px 0 80px; border-bottom:3px solid var(--gold); background:url('images/hero-scene.jpg') right center/cover no-repeat #07090c; }
+  .hero2 { position:relative; overflow:hidden; color:var(--white); padding:88px 0 80px; border-bottom:3px solid var(--gold); background:linear-gradient(90deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.20) 46%, rgba(0,0,0,0) 72%), linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(0,0,0,.45) 100%), url('images/hero-scene.jpg') right center/cover no-repeat #07090c; }
   .hero-copy-hidden { display:none !important; }
   .hero2-grid { display:grid; grid-template-columns:1fr; gap:60px; align-items:center; position:relative; z-index:1; }
   .hero2-copy { max-width:660px; }
