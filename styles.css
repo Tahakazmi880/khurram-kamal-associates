@@ -18,7 +18,7 @@
   .logo-mark { width:54px; height:54px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .logo-mark svg { height:54px; width:54px; }
   .logo-stack { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
-  .logo-sub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#8a6d2f; white-space:nowrap; margin-top:-4px; transform:translateX(.11em); }
+  .logo-sub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#A8842C; white-space:nowrap; margin-top:-4px; transform:translateX(.11em); }
   .brand-sep { width:2px; height:50px; background:linear-gradient(180deg, rgba(168,132,44,0) 0%, #A8842C 22%, #A8842C 78%, rgba(168,132,44,0) 100%); flex-shrink:0; }
   .brand .bname { font-family:Georgia,serif; font-weight:700; font-size:19px; letter-spacing:.13em; line-height:1.12; white-space:nowrap; color:var(--ink); }
   .brand > div:last-child { text-align:left; }
@@ -203,7 +203,7 @@
   footer .fmark svg { height:56px; width:56px; }
   footer .fstack { display:flex; flex-direction:column; align-items:center; margin:0 0 14px; }
   footer .fstack .fmark { margin:0; }
-  footer .fsub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#C6A15B; white-space:nowrap; margin-top:-4px; transform:translateX(.11em); }
+  footer .fsub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#D9BC6A; white-space:nowrap; margin-top:-4px; transform:translateX(.11em); }
   footer .fname { color:var(--white); font-family:Georgia,serif; font-size:17px; letter-spacing:.14em; font-weight:700; }
   footer .fname2 { color:var(--gold); font-family:Georgia,serif; font-size:12px; letter-spacing:.42em; margin-top:3px; }
   footer .fsub { font-size:9px; letter-spacing:.24em; color:#8FA1B0; margin-top:6px; }
