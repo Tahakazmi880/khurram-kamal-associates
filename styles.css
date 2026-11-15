@@ -201,6 +201,9 @@
   footer .fgrid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:36px; text-align:left; }
   footer .fmark { width:56px; height:56px; display:flex; align-items:center; margin:0 0 14px; }
   footer .fmark svg { height:56px; width:56px; }
+  footer .fstack { display:flex; flex-direction:column; align-items:flex-start; margin:0 0 14px; }
+  footer .fstack .fmark { margin:0; }
+  footer .fsub { font-family:Georgia,serif; font-size:7.5px; font-weight:700; letter-spacing:.22em; color:#C6A15B; white-space:nowrap; margin-top:2px; }
   footer .fname { color:var(--white); font-family:Georgia,serif; font-size:17px; letter-spacing:.14em; font-weight:700; }
   footer .fname2 { color:var(--gold); font-family:Georgia,serif; font-size:12px; letter-spacing:.42em; margin-top:3px; }
   footer .fsub { font-size:9px; letter-spacing:.24em; color:#8FA1B0; margin-top:6px; }
