@@ -363,7 +363,9 @@
   }
 
   /* ===== Redesign: navy hero, featured areas, about, team intro ===== */
-  .hero2 { position:relative; overflow:hidden; color:var(--white); padding:88px 0 80px; border-bottom:3px solid var(--gold); background:linear-gradient(90deg, #0B2239 0%, #0B2239 46%, rgba(11,34,57,.55) 66%, rgba(11,34,57,.22) 100%), url('images/hero-scene.jpg') center/cover no-repeat, var(--navy); }
+  .hero2 { position:relative; overflow:hidden; color:var(--white); padding:0; border-bottom:3px solid var(--gold); background:var(--navy); }
+  .hero-banner { display:block; width:100%; height:auto; }
+  .hero-copy-hidden { display:none !important; }
   .hero2-grid { display:grid; grid-template-columns:1fr; gap:60px; align-items:center; position:relative; z-index:1; }
   .hero2-copy { max-width:660px; }
   .hero2-kicker { display:flex; align-items:center; gap:14px; font-size:12px; letter-spacing:.35em; font-weight:700; color:var(--gold); text-transform:uppercase; }
