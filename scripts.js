@@ -143,3 +143,29 @@
     });
   }
 })();
+
+// Premium scroll: gold progress bar + back-to-top (rAF-throttled, passive)
+(function () {
+  var bar = document.createElement('div');
+  bar.id = 'scroll-progress';
+  document.body.appendChild(bar);
+  var top = document.createElement('button');
+  top.className = 'to-top';
+  top.type = 'button';
+  top.setAttribute('aria-label', 'Back to top');
+  top.innerHTML = '&#8593;';
+  document.body.appendChild(top);
+  top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var y = window.scrollY || h.scrollTop;
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    top.classList.toggle('show', y > 600);
+    ticking = false;
+  }
+  addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } });
+  update();
+})();
